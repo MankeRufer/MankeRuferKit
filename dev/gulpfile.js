@@ -53,11 +53,11 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('../dist/js'))
     .pipe(browserSync.stream());
 });
-/* gulp.task('html', (done) => {
+ gulp.task('html', (done) => {
     browserSync.reload();
     done();
 });
-
+/*
 gulp.task('views', function buildHTML() {
   return gulp.src('views/*.pug')
   .pipe(pug())
@@ -67,14 +67,14 @@ gulp.task('views', function buildHTML() {
 gulp.task('watch', function() {
     gulp.watch(path.sass + '**/*.scss', gulp.parallel('styles'));
     gulp.watch(path.js + '**/*.js', gulp.parallel('scripts'));
-   /*  gulp.watch("views/*.pug",  gulp.parallel('views'));
-    gulp.watch("*.html",  gulp.parallel('html')); */
+   /*  gulp.watch("views/*.pug",  gulp.parallel('views'));*/
+    gulp.watch("../dist/*.html",  gulp.parallel('html')); 
 });
 
 gulp.task('browser-sync', () => {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "../dist"
         }
     });
 });
